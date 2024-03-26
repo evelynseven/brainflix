@@ -1,0 +1,24 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.hero {
+  display: flex;
+  justify-content: center;
+  height: 56vw;
+  background-color: $BrainFlix-DarkBlack;
+
+  @include tablet {
+    height: 51vw;
+  }
+
+  @include desktop {
+    height: 37.5vw;
+  }
+
+  video {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+}
