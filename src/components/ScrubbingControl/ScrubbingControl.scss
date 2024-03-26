@@ -49,11 +49,19 @@
     color: $BrainFlix-White;
     width: 50px;
 
+    @include desktop {
+      width: 60px;
+    }
+
     p {
       font-size: 6px;
 
       @include tablet {
         font-size: 8px;
+      }
+
+      @include desktop {
+        font-size: 10px;
       }
     }
   }

@@ -1,7 +1,7 @@
 import "./ScrubbingControl.scss";
 import scrubIcon from "../../assets/icons/scrub.svg";
 
-function ScrubbingControl() {
+function ScrubbingControl({ duration }) {
   return (
     <div className="scrubbing-control">
       <div className="scrubbing-control__scrubbar-container">
@@ -15,7 +15,7 @@ function ScrubbingControl() {
         />
       </div>
       <div className="scrubbing-control__time-container">
-        <p>1:27 / 4:01</p>
+        <p>1:27 / {duration}</p>
       </div>
     </div>
   );

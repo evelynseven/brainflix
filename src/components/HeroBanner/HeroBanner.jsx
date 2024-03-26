@@ -1,11 +1,10 @@
 import "./HeroBanner.scss";
-import heroImg from "../../assets/images/Upload-video-preview.jpg";
 import playIcon from "../../assets/icons/play.svg";
 import fullScreenIcon from "../../assets/icons/fullscreen.svg";
 import volumeUpIcon from "../../assets/icons/volume_up.svg";
 import ScrubbingControl from "../ScrubbingControl/ScrubbingControl";
 
-function HeroBanner() {
+function HeroBanner({ heroImg, duration }) {
   return (
     <div className="hero">
       <video poster={heroImg}></video>
@@ -13,7 +12,7 @@ function HeroBanner() {
         <div className="hero__play-icon-box">
           <img className="hero__play-icon" src={playIcon} alt="play icon" />
         </div>
-        <ScrubbingControl />
+        <ScrubbingControl duration={duration} />
         <div className="hero__right-bottom-icon-box">
           <img
             className="hero__full-screen-icon"
