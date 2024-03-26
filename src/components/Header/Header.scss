@@ -1,0 +1,69 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 2.25rem;
+  }
+
+  @include desktop {
+    padding: 0 8.125rem;
+  }
+
+  &__logo-container {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet {
+      position: fixed;
+      left: 2.25rem;
+    }
+
+    @include desktop {
+      left: 8.125rem;
+    }
+  }
+
+  &__profile-pic-search {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__profile-pic-uploader {
+    display: none;
+    @include tablet {
+      display: inline-block;
+    }
+  }
+
+  &__profile-pic-search,
+  &__profile-pic-uploader {
+    object-fit: cover;
+    object-position: 20%;
+  }
+
+  &__search-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $padding-between-components-m;
+
+    @include tablet {
+      padding: 0 0.5rem;
+    }
+  }
+
+  &__uploader-container {
+    padding: 0 $padding-between-components-m;
+    margin: $padding-between-components-m 0;
+
+    @include desktop {
+      margin-right: 1.2rem;
+    }
+  }
+}

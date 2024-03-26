@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.uploader {
+  position: relative;
+
+  img {
+    height: 20px;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+}

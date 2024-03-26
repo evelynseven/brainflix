@@ -1,0 +1,35 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid $BrainFlix-Mercury;
+  height: 35px;
+  border-radius: 4px;
+  padding-left: 0.5rem;
+  background-color: $BrainFlix-Alabaster;
+  width: 100%;
+  margin-right: 1rem;
+
+  @include tablet {
+    margin-right: 0;
+    height: 38px;
+    width: 240px;
+  }
+
+  img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  input {
+    margin-left: 0.5rem;
+    border: none;
+    background-color: $BrainFlix-Alabaster;
+
+    &::placeholder {
+      color: $BrainFlix-Black;
+    }
+  }
+}
