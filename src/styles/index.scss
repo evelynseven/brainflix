@@ -66,11 +66,16 @@ p {
 }
 
 button,
-.label {
+label {
   font-size: 0.75rem;
   line-height: 1.25rem;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+label {
+  color: $BrainFlix-Silver;
+  padding-bottom: 4px;
 }
 
 .cta-button {

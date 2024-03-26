@@ -1,8 +1,9 @@
 import "./Header.scss";
 import brainFlixLogo from "../../assets/logo/BrainFlix-logo.svg";
 import profilePic from "../../assets/images/Mohan-muruge.jpg";
+import uploadIcon from "../../assets/icons/upload.svg";
 import SearchBox from "../SearchBox/SearchBox";
-import Uploader from "../Uploader/Uploader";
+import CTAButton from "../CTAButton/CTAButton";
 
 function Header() {
   return (
@@ -19,7 +20,7 @@ function Header() {
         />
       </div>
       <div className="header__uploader-container">
-        <Uploader />
+        <CTAButton buttonIcon={uploadIcon} buttonText="upload" />
       </div>
       <img
         className="avatar header__profile-pic-uploader"

@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+
+.video-comment {
+  padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  @include desktop {
+    padding: 0 0 0 8.125rem;
+    width: 60%;
+  }
+}
