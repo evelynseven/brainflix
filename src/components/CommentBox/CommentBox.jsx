@@ -5,23 +5,23 @@ import CTAButton from "../CTAButton/CTAButton";
 
 function CommentBox() {
   return (
-    <div class="comment-box">
-      <form class="comment-box__form-content-box">
-        <div class="comment-box__img-container">
+    <div className="comment-post">
+      <form className="comment-post__form-content-box">
+        <div className="comment-post__img-container">
           <img src={MohanMuruge} alt="Mohan-muruge user photo" />
         </div>
-        <div class="comment-box__form-input-box">
+        <div className="comment-post__form-input-box">
           <div>
-            <label for="userComment">join the conversation</label>
+            <label htmlFor="userComment">join the conversation</label>
             <textarea
-              class="comment-box__textarea"
+              className="comment-post__textarea"
               name="userComment"
               id="userComment"
               placeholder="Add a new comment"
-              autocomplete="off"
+              autoComplete="off"
             ></textarea>
           </div>
-          <div class="comment-box__button-box">
+          <div className="comment-post__button-box">
             <CTAButton buttonIcon={commentButton} buttonText="comment" />
           </div>
         </div>

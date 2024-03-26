@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.comment-box {
+.comment-post {
   &__form-content-box {
     width: 100%;
     display: flex;
