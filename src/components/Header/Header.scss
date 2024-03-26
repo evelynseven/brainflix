@@ -14,12 +14,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 2.25rem;
     height: 72px;
-  }
-
-  @include desktop {
-    padding: 0 8.125rem;
   }
 
   &__logo-container {
@@ -46,8 +41,14 @@
 
   &__profile-pic-uploader {
     display: none;
+
     @include tablet {
       display: inline-block;
+      margin-right: 2.25rem;
+    }
+
+    @include desktop {
+      margin-right: 8.125rem;
     }
   }
 

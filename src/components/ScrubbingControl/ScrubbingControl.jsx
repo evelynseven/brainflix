@@ -15,7 +15,7 @@ function ScrubbingControl({ duration }) {
         />
       </div>
       <div className="scrubbing-control__time-container">
-        <p>1:27 / {duration}</p>
+        <p>0:00 / {duration}</p>
       </div>
     </div>
   );

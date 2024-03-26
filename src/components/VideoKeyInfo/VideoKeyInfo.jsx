@@ -55,21 +55,25 @@ function VideoKeyInfo({ channel, timestamp, views, likes }) {
 
   return (
     <div className="video-keyinfo">
-      <div className="video-keyinfo__row-container">
+      <div className="video-keyinfo__left-col">
         <p className="video-keyinfo__channel">By {channel}</p>
-        <img src={viewsIcon} alt="views icon" />
-        <p className="video-keyinfo__grey-text video-keyinfo__number">
-          {views}
-        </p>
-      </div>
-      <div className="video-keyinfo__row-container">
-        <p className="video-keyinfo__create-time">
+        <p className="video-keyinfo__grey-text">
           {dynamicTS(timestamp, new Date())}
         </p>
-        <img src={likesIcon} alt="views icon" />
-        <p className="video-keyinfo__grey-text video-keyinfo__number">
-          {likes}
-        </p>
+      </div>
+      <div className="video-keyinfo__icons-numbers">
+        <div className="video-keyinfo__icon-number-wrapper">
+          <img src={viewsIcon} alt="views icon" />
+          <p className="video-keyinfo__grey-text video-keyinfo__number">
+            {views}
+          </p>
+        </div>
+        <div className="video-keyinfo__icon-number-wrapper">
+          <img src={likesIcon} alt="views icon" />
+          <p className="video-keyinfo__grey-text video-keyinfo__number">
+            {likes}
+          </p>
+        </div>
       </div>
     </div>
   );
