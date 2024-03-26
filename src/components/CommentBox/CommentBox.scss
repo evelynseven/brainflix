@@ -2,6 +2,12 @@
 @use "../../styles/partials/variables" as *;
 
 .comment-post {
+  margin-bottom: 0.5rem;
+
+  @include desktop {
+    padding-right: 2.25rem;
+  }
+
   &__form-content-box {
     width: 100%;
     display: flex;

@@ -7,11 +7,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid $BrainFlix-Mercury;
-
-  &:first-child {
-    border-top: 1px solid $BrainFlix-Mercury;
-  }
+  border-top: 1px solid $BrainFlix-Mercury;
 
   p {
     margin: 0.3rem 0;
@@ -50,5 +46,15 @@
   &__info-first-row {
     display: flex;
     justify-content: space-between;
+
+    @include desktop {
+      padding-right: 2.25rem;
+    }
+  }
+
+  &__info-second-row {
+    @include desktop {
+      padding-right: 2.25rem;
+    }
   }
 }

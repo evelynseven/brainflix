@@ -1,0 +1,25 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.video-list {
+  padding: 1rem;
+  border-top: 1px solid $BrainFlix-Mercury;
+
+  @include tablet {
+    padding: 1rem 2.25rem;
+  }
+
+  @include desktop {
+    padding-left: 2.25rem;
+    display: inline-block;
+    width: 300px;
+    border-left: 1px solid $BrainFlix-Mercury;
+    border-top: none;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid $BrainFlix-Mercury;
+    margin: 0.5rem 0 0 0;
+  }
+}

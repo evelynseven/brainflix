@@ -9,10 +9,10 @@ function VideoComment({ comments }) {
     <div className="video-comment">
       <h3>{allComments.length} comments</h3>
       <CommentBox />
-      <hr />
       {comments.map((comment) => {
         return (
           <SingleComment
+            key={comment.id}
             name={comment.name}
             timestamp={comment.timestamp}
             comment={comment.comment}

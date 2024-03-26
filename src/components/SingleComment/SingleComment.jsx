@@ -10,7 +10,7 @@ function SingleComment({ name, timestamp, comment }) {
           <p className="comment-box__name">{name}</p>
           <p>{dynamicTS(timestamp, new Date())}</p>
         </div>
-        <p>{comment}</p>
+        <p className="comment-box__info-second-row">{comment}</p>
       </div>
     </div>
   );
