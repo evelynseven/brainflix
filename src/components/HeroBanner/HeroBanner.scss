@@ -4,8 +4,9 @@
 .hero {
   display: flex;
   justify-content: center;
-  height: 56vw;
+  height: 56.25vw;
   background-color: $BrainFlix-DarkBlack;
+  position: relative;
 
   @include tablet {
     height: 51vw;
@@ -20,5 +21,70 @@
     width: auto;
     aspect-ratio: 16/9;
     object-fit: cover;
+  }
+
+  &__icons-container {
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 1rem;
+
+    @include tablet {
+      height: 60px;
+    }
+  }
+
+  &__play-icon-box {
+    padding: 0 0.5rem;
+    justify-content: center;
+  }
+
+  &__right-bottom-icon-box {
+    width: 3rem;
+    padding: 0 0.3rem;
+    justify-content: space-between;
+  }
+
+  &__play-icon-box,
+  &__right-bottom-icon-box {
+    background-color: rgb($BrainFlix-DarkBlack, 0.5);
+    height: 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+
+    @include tablet {
+      height: 2rem;
+    }
+  }
+
+  &__play-icon {
+    height: 8px;
+
+    @include tablet {
+      height: 13px;
+    }
+  }
+
+  &__full-screen-icon {
+    height: 11px;
+
+    @include tablet {
+      height: 16px;
+    }
+  }
+
+  &__volume-icon {
+    height: 13px;
+
+    @include tablet {
+      height: 18px;
+    }
   }
 }
