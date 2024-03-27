@@ -19,6 +19,7 @@ function VideoComment({ comments }) {
           />
         );
       })}
+      <hr />
     </div>
   );
 }

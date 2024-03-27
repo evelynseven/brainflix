@@ -4,6 +4,14 @@
 .video-detail {
   padding: 0 1rem;
 
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  @include desktop {
+    padding: 0 0 0 8.125rem;
+  }
+
   h1,
   p {
     @include desktop {
@@ -11,11 +19,9 @@
     }
   }
 
-  @include tablet {
-    padding: 0 2.25rem;
-  }
-
-  @include desktop {
-    padding: 0 0 0 8.125rem;
+  h1 {
+    @include desktop {
+      margin-bottom: 0;
+    }
   }
 }

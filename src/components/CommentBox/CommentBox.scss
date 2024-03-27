@@ -13,6 +13,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @include tablet {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__img-container {
@@ -23,8 +27,8 @@
     border-radius: 50%;
 
     @include tablet {
-      width: 3rem;
-      height: 3rem;
+      width: 2.5rem;
+      height: 2.5rem;
     }
 
     img {
@@ -41,12 +45,12 @@
 
     @include tablet {
       margin: 0;
-      width: 89%;
+      width: 91%;
     }
 
     @include desktop {
       margin: 0;
-      width: 87%;
+      width: 90%;
     }
   }
 
@@ -55,12 +59,17 @@
     width: 100%;
     box-sizing: border-box;
     border-radius: 0.25rem;
-    padding: 0.75rem;
+    padding: 0.6rem;
     border: 1px solid $BrainFlix-Mercury;
     font-family: "AvenirNext";
-    font-size: 0.8125rem;
     background-color: $BrainFlix-Alabaster;
     resize: none;
+    overflow: hidden;
+
+    @include tablet {
+      height: 40px;
+      margin-right: 1.5rem;
+    }
 
     &::placeholder {
       color: $BrainFlix-Black;
@@ -82,5 +91,13 @@
 
   &__button-box {
     margin: 0.6rem 0;
+  }
+
+  &__input-button-wrapper {
+    @include tablet {
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
   }
 }

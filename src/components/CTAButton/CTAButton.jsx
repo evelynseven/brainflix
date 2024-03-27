@@ -4,7 +4,7 @@ function CTAButton({ buttonIcon, buttonText }) {
   return (
     <div className="CTAButton">
       <img src={buttonIcon} alt="upload icon" />
-      <button className="cta-button">{buttonText}</button>
+      <button className="CTAButton__cta-button">{buttonText}</button>
     </div>
   );
 }

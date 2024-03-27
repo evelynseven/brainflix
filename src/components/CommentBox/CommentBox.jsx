@@ -11,8 +11,8 @@ function CommentBox() {
           <img src={MohanMuruge} alt="Mohan-muruge user photo" />
         </div>
         <div className="comment-post__form-input-box">
-          <div>
-            <label htmlFor="userComment">join the conversation</label>
+          <label htmlFor="userComment">join the conversation</label>
+          <div className="comment-post__input-button-wrapper">
             <textarea
               className="comment-post__textarea"
               name="userComment"
@@ -20,9 +20,9 @@ function CommentBox() {
               placeholder="Add a new comment"
               autoComplete="off"
             ></textarea>
-          </div>
-          <div className="comment-post__button-box">
-            <CTAButton buttonIcon={commentButton} buttonText="comment" />
+            <div className="comment-post__button-box">
+              <CTAButton buttonIcon={commentButton} buttonText="comment" />
+            </div>
           </div>
         </div>
       </form>
