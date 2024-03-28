@@ -9,12 +9,10 @@ import VideoList from "../VideoList/VideoList";
 function Main() {
   const videos = videoData;
   const [heroVideo, setHeroVideo] = useState(videos[0]);
-  const [heroVideoID, setHeroVideoID] = useState(videos[0].id);
 
   const setHero = (id) => {
     let newHero = videos.find((video) => video.id === id);
     setHeroVideo(newHero);
-    setHeroVideoID(id);
   };
 
   return (
@@ -36,7 +34,7 @@ function Main() {
           />
           <VideoComment comments={heroVideo.comments} />
         </div>
-        <VideoList setHeroFn={setHero} heroVideoID={heroVideoID} />
+        <VideoList setHeroFn={setHero} heroVideoID={heroVideo.id} />
       </div>
     </main>
   );
