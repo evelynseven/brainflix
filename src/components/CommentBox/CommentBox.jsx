@@ -4,9 +4,13 @@ import commentButton from "../../assets/icons/add_comment.svg";
 import CTAButton from "../CTAButton/CTAButton";
 
 function CommentBox() {
+  const clickHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="comment-post">
-      <form className="comment-post__form-content-box">
+      <form onClick={clickHandler} className="comment-post__form-content-box">
         <div className="comment-post__img-container">
           <img src={MohanMuruge} alt="Mohan-muruge user photo" />
         </div>
