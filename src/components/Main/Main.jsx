@@ -1,4 +1,5 @@
 import "./Main.scss";
+import { useState } from "react";
 import HeroBanner from "../HeroBanner/HeroBanner";
 import VideoDetail from "../VideoDetail/VideoDetail";
 import videoData from "../../data/video-details.json";
@@ -7,11 +8,22 @@ import VideoList from "../VideoList/VideoList";
 
 function Main() {
   const videos = videoData;
-  const heroVideo = videos[0];
+  const [heroVideo, setHeroVideo] = useState(videos[0]);
+  const [heroVideoID, setHeroVideoID] = useState(videos[0].id);
+
+  const setHero = (id) => {
+    let newHero = videos.find((video) => video.id === id);
+    setHeroVideo(newHero);
+    setHeroVideoID(id);
+  };
 
   return (
     <main className="main">
-      <HeroBanner heroImg={heroVideo.image} duration={heroVideo.duration} />
+      <HeroBanner
+        heroSrc={heroVideo.video}
+        heroImg={heroVideo.image}
+        duration={heroVideo.duration}
+      />
       <div className="main__container">
         <div className="main__main-content">
           <VideoDetail
@@ -24,7 +36,7 @@ function Main() {
           />
           <VideoComment comments={heroVideo.comments} />
         </div>
-        <VideoList />
+        <VideoList setHeroFn={setHero} heroVideoID={heroVideoID} />
       </div>
     </main>
   );

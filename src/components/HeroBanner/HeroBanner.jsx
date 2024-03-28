@@ -4,16 +4,16 @@ import fullScreenIcon from "../../assets/icons/fullscreen.svg";
 import volumeUpIcon from "../../assets/icons/volume_up.svg";
 import ScrubbingControl from "../ScrubbingControl/ScrubbingControl";
 
-function HeroBanner({ heroImg, duration }) {
+function HeroBanner({ heroSrc, heroImg, duration }) {
   return (
     <div className="hero">
-      <video poster={heroImg}></video>
-      <div className="hero__icons-container">
-        <div className="hero__play-icon-box">
+      <video poster={heroImg} src={heroSrc} controls></video>
+      {/* <div className="hero__icons-container"> */}
+      {/* <div className="hero__play-icon-box">
           <img className="hero__play-icon" src={playIcon} alt="play icon" />
-        </div>
-        <ScrubbingControl duration={duration} />
-        <div className="hero__right-bottom-icon-box">
+        </div> */}
+      {/* <ScrubbingControl duration={duration} /> */}
+      {/* <div className="hero__right-bottom-icon-box">
           <img
             className="hero__full-screen-icon"
             src={fullScreenIcon}
@@ -24,8 +24,8 @@ function HeroBanner({ heroImg, duration }) {
             src={volumeUpIcon}
             alt="volume up icon"
           />
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 }

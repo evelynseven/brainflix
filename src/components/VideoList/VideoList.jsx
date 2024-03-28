@@ -2,9 +2,9 @@ import "./VideoList.scss";
 import videoData from "../../data/videos.json";
 import SingleVideo from "../SingleVideo/SingleVideo";
 
-function VideoList() {
+function VideoList({ setHeroFn, heroVideoID }) {
   const videos = videoData;
-  const nextVideos = videos.slice(1);
+  const nextVideos = videos.filter((video) => video.id !== heroVideoID);
 
   return (
     <div className="video-list">
@@ -13,9 +13,11 @@ function VideoList() {
         return (
           <SingleVideo
             key={video.id}
+            id={video.id}
             title={video.title}
             channel={video.channel}
             image={video.image}
+            setHeroFn={setHeroFn}
           />
         );
       })}
