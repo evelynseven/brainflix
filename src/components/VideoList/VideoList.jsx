@@ -1,5 +1,4 @@
 import "./VideoList.scss";
-import videoData from "../../data/videos.json";
 import SingleVideo from "../SingleVideo/SingleVideo";
 
 function VideoList({ videos, heroVideoID }) {

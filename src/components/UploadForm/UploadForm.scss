@@ -1,0 +1,131 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.upload-form {
+  border-top: 1px solid $BrainFlix-Mercury;
+  padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  @include desktop {
+    padding: 0 8.125rem;
+  }
+
+  &__content-wrapper {
+    width: 100%;
+    @include tablet {
+      border-top: 1px solid $BrainFlix-Mercury;
+      padding: 1.5rem 0 0.5rem;
+      border-bottom: 1px solid $BrainFlix-Mercury;
+    }
+    @include desktop {
+      display: flex;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &__img-wrapper {
+    @include desktop {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__img-preview {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 0.5rem;
+    display: block;
+
+    @include desktop {
+      width: 330px;
+    }
+  }
+
+  &__input-wrapper {
+    width: 100%;
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+  }
+
+  input {
+    box-sizing: border-box;
+    border: 1px solid $BrainFlix-Mercury;
+    background-color: $BrainFlix-Alabaster;
+    border-radius: 4px;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &::placeholder {
+      color: $BrainFlix-Black;
+    }
+  }
+
+  textarea {
+    box-sizing: border-box;
+    border: 1px solid $BrainFlix-Mercury;
+    background-color: $BrainFlix-Alabaster;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+    resize: none;
+
+    &::placeholder {
+      color: $BrainFlix-Black;
+    }
+
+    @include desktop {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__button-wrapper {
+    width: 100%;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      margin-top: 1.5rem;
+    }
+
+    @include desktop {
+      margin-top: 1.8rem;
+    }
+  }
+
+  &__secondary-button-above {
+    display: none;
+
+    @include tablet {
+      display: inline-block;
+      padding: 0 32px;
+    }
+  }
+
+  &__secondary-button-below,
+  &__secondary-button-above {
+    width: 150px;
+    color: $BrainFlix-Blue;
+    background-color: $BrainFlix-White;
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+  }
+
+  &__secondary-button-below {
+    margin-top: 1rem;
+    width: 100%;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

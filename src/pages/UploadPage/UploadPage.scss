@@ -1,0 +1,9 @@
+@use "../../styles/partials/mixins" as *;
+
+.upload-page {
+  margin-top: 160px;
+
+  @include tablet {
+    margin-top: 72px;
+  }
+}
