@@ -1,18 +1,18 @@
 import "./SingleComment.scss";
 import dynamicTS from "../DynamicTimestamp/DynamicTimestamp";
 
-function SingleComment({ name, timestamp, comment }) {
+function SingleComment({ singleComment }) {
   return (
     <div className="comment-box">
       <div className="comment-box__default-user-img"></div>
       <div className="comment-box__info-box">
         <div className="comment-box__info-first-row">
-          <p className="comment-box__name">{name}</p>
+          <p className="comment-box__name">{singleComment.name}</p>
           <p className="comment-box__time">
-            {dynamicTS(timestamp, new Date())}
+            {dynamicTS(singleComment.timestamp, new Date())}
           </p>
         </div>
-        <p className="comment-box__info-second-row">{comment}</p>
+        <p className="comment-box__info-second-row">{singleComment.comment}</p>
       </div>
     </div>
   );

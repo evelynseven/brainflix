@@ -17,6 +17,10 @@
     height: 72px;
   }
 
+  &__link {
+    text-decoration: none;
+  }
+
   &__logo-container {
     height: 50px;
     display: flex;

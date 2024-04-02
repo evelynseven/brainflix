@@ -4,12 +4,15 @@ import profilePic from "../../assets/images/Mohan-muruge.jpg";
 import uploadIcon from "../../assets/icons/upload.svg";
 import SearchBox from "../SearchBox/SearchBox";
 import CTAButton from "../CTAButton/CTAButton";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header className="header">
       <div className="header__logo-container">
-        <img src={brainFlixLogo} alt="BrainFlix logo" />
+        <Link to="/">
+          <img src={brainFlixLogo} alt="BrainFlix logo" />
+        </Link>
       </div>
       <div className="header__search-container">
         <SearchBox />
@@ -20,7 +23,9 @@ function Header() {
         />
       </div>
       <div className="header__uploader-container">
-        <CTAButton buttonIcon={uploadIcon} buttonText="upload" />
+        <Link to="upload" className="header__link">
+          <CTAButton buttonIcon={uploadIcon} buttonText="upload" />
+        </Link>
       </div>
       <img
         className="avatar header__profile-pic-uploader"

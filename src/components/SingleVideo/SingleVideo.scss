@@ -36,6 +36,10 @@
 
   &__title {
     font-weight: 600;
-    cursor: pointer;
   }
+}
+
+.link {
+  text-decoration: none;
+  color: $BrainFlix-Black;
 }
