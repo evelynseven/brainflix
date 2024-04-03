@@ -8,15 +8,7 @@ function VideoList({ videos, heroVideoID }) {
     <div className="video-list">
       <label>next videos</label>
       {nextVideos.map((video) => {
-        return (
-          <SingleVideo
-            key={video.id}
-            id={video.id}
-            title={video.title}
-            channel={video.channel}
-            image={video.image}
-          />
-        );
+        return <SingleVideo key={video.id} video={video} />;
       })}
     </div>
   );

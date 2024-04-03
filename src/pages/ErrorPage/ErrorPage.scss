@@ -1,0 +1,25 @@
+@use "../../styles/partials/mixins" as *;
+
+.error-page {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 1rem;
+  margin-top: 160px;
+
+  @include tablet {
+    margin-top: 72px;
+    padding: 2.25rem;
+  }
+
+  @include desktop {
+    padding: 8rem;
+  }
+
+  p {
+    width: 100%;
+  }
+}

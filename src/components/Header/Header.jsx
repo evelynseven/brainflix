@@ -6,11 +6,11 @@ import SearchBox from "../SearchBox/SearchBox";
 import CTAButton from "../CTAButton/CTAButton";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ heroVideoID }) {
   return (
     <header className="header">
       <div className="header__logo-container">
-        <Link to="/">
+        <Link to={`/video/${heroVideoID}`}>
           <img src={brainFlixLogo} alt="BrainFlix logo" />
         </Link>
       </div>
