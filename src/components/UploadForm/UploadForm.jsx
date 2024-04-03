@@ -2,8 +2,9 @@ import "./UploadForm.scss";
 import CTAButton from "../CTAButton/CTAButton";
 import publishIcon from "../../assets/icons/publish.svg";
 import imgPreview from "../../assets/images/Upload-video-preview.jpg";
+import { Link } from "react-router-dom";
 
-const UploadForm = () => {
+const UploadForm = ({ heroVideoID, publishHandler }) => {
   return (
     <div className="upload-form">
       <h1>Upload Video</h1>
@@ -28,9 +29,21 @@ const UploadForm = () => {
         </div>
       </div>
       <div className="upload-form__button-wrapper">
-        <button className="upload-form__secondary-button-above">Cancel</button>
-        <CTAButton buttonIcon={publishIcon} buttonText="publish" />
-        <button className="upload-form__secondary-button-below">Cancel</button>
+        <Link to={`/video/${heroVideoID}`}>
+          <button className="upload-form__secondary-button-above">
+            Cancel
+          </button>
+        </Link>
+        <CTAButton
+          clickHandler={publishHandler}
+          buttonIcon={publishIcon}
+          buttonText="publish"
+        />
+        <Link to={`/video/${heroVideoID}`}>
+          <button className="upload-form__secondary-button-below">
+            Cancel
+          </button>
+        </Link>
       </div>
     </div>
   );

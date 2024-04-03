@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Main from "./pages/Main/Main";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import { useEffect, useState } from "react";
@@ -74,7 +74,10 @@ function App() {
               }
             />
           </Route>
-          <Route path="upload" element={<UploadPage />} />
+          <Route
+            path="upload"
+            element={<UploadPage heroVideoID={heroVideoID} />}
+          />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

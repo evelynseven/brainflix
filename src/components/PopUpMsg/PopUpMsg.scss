@@ -1,0 +1,24 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.pop-up {
+  width: 100%;
+  position: fixed;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+
+  &__msg {
+    min-width: 100px;
+    max-width: 80vw;
+    display: inline-block;
+    background-color: $BrainFlix-Black;
+    color: $BrainFlix-White;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
