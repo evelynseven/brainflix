@@ -11,23 +11,14 @@ function App() {
   const [videos, setVideos] = useState([]);
   const [heroVideo, setHeroVideo] = useState();
 
-  // useEffect(() => {
-  //   fetchVideos().then((data) => {
-  //     setVideos(data);
-  //     fetchHeroVideo(data[0].id).then((data) => {
-  //       setHeroVideo(data);
-  //     });
-  //   });
-  // }, []);
-
   useEffect(() => {
-    const getVideos = async () => {
-      const data = await fetchVideos();
+    fetchVideos().then((data) => {
       setVideos(data);
-      const hero = await fetchHeroVideo(data[0].id);
-      setHeroVideo(hero);
-    };
-    getVideos();
+      const id = data[0].id;
+      fetchHeroVideo(id).then((data) => {
+        setHeroVideo(data);
+      });
+    });
   }, []);
 
   return (

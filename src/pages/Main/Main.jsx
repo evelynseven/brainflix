@@ -16,9 +16,11 @@ function Main({
   //change the heroVideo detail when the url has changed
   const { heroVideoID } = useParams();
   useEffect(() => {
-    fetchHeroVideo(heroVideoID).then((data) => {
-      setHeroVideo(data);
-    });
+    if (heroVideoID) {
+      fetchHeroVideo(heroVideoID).then((data) => {
+        setHeroVideo(data);
+      });
+    }
   }, [heroVideoID]);
 
   return (
