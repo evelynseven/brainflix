@@ -3,12 +3,7 @@ import MohanMuruge from "../../assets/images/Mohan-muruge.jpg";
 import commentButton from "../../assets/icons/add_comment.svg";
 import CTAButton from "../CTAButton/CTAButton";
 
-function CommentBox({
-  postComment,
-  heroVideo,
-  fetchHeroVideo,
-  setAllComments,
-}) {
+function CommentBox({ postComment, heroVideo, updateComments }) {
   const submitHandler = (e) => {
     e.preventDefault();
     const content = e.target.userComment.value;
@@ -18,12 +13,7 @@ function CommentBox({
         comment: `${content}`,
       };
       postComment(newComment, heroVideo.id).then(() => {
-        fetchHeroVideo(heroVideo.id).then((data) => {
-          const sortedComments = data.comments.sort(
-            (a, b) => b.timestamp - a.timestamp
-          );
-          setAllComments(sortedComments);
-        });
+        updateComments();
       });
       e.target.userComment.value = "";
     }

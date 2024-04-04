@@ -12,6 +12,7 @@ function Main({
   setHeroVideo,
   fetchHeroVideo,
   postComment,
+  deleteComment,
 }) {
   //change the heroVideo detail when the url has changed
   const { heroVideoID } = useParams();
@@ -33,6 +34,7 @@ function Main({
             heroVideo={heroVideo}
             postComment={postComment}
             fetchHeroVideo={fetchHeroVideo}
+            deleteComment={deleteComment}
           />
         </div>
         <VideoList videos={videos} heroVideo={heroVideo} />

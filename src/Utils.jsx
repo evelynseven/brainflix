@@ -23,10 +23,10 @@ const fetchHeroVideo = async (id) => {
   }
 };
 
-const postComment = async (comment, id) => {
+const postComment = async (comment, videoId) => {
   try {
     const response = await axios.post(
-      `${baseUrl}/videos/${id}/comments?api_key=${apiKey}`,
+      `${baseUrl}/videos/${videoId}/comments?api_key=${apiKey}`,
       comment
     );
     return response;
@@ -35,4 +35,15 @@ const postComment = async (comment, id) => {
   }
 };
 
-export { fetchVideos, fetchHeroVideo, postComment };
+const deleteComment = async (videoId, commentId) => {
+  try {
+    const response = await axios.delete(
+      `${baseUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`
+    );
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { fetchVideos, fetchHeroVideo, postComment, deleteComment };

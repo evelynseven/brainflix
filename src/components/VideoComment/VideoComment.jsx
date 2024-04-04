@@ -3,16 +3,26 @@ import CommentBox from "../CommentBox/CommentBox";
 import SingleComment from "../SingleComment/SingleComment";
 import "./VideoComment.scss";
 
-function VideoComment({ heroVideo, fetchHeroVideo, postComment }) {
+function VideoComment({
+  heroVideo,
+  fetchHeroVideo,
+  postComment,
+  deleteComment,
+}) {
   const sortedComments = heroVideo.comments.sort(
     (a, b) => b.timestamp - a.timestamp
   );
 
   const [allComments, setAllComments] = useState(sortedComments);
 
-  useEffect(() => {
-    setAllComments(sortedComments);
-  }, [heroVideo]);
+  const updateComments = () => {
+    fetchHeroVideo(heroVideo.id).then((data) => {
+      const sortedComments = data.comments.sort(
+        (a, b) => b.timestamp - a.timestamp
+      );
+      setAllComments(sortedComments);
+    });
+  };
 
   return (
     <div className="video-comment">
@@ -20,11 +30,18 @@ function VideoComment({ heroVideo, fetchHeroVideo, postComment }) {
       <CommentBox
         heroVideo={heroVideo}
         postComment={postComment}
-        fetchHeroVideo={fetchHeroVideo}
-        setAllComments={setAllComments}
+        updateComments={updateComments}
       />
       {allComments.map((comment) => {
-        return <SingleComment singleComment={comment} key={comment.id} />;
+        return (
+          <SingleComment
+            heroVideo={heroVideo}
+            singleComment={comment}
+            key={comment.id}
+            deleteComment={deleteComment}
+            updateComments={updateComments}
+          />
+        );
       })}
       <hr />
     </div>
