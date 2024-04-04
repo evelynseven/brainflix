@@ -7,21 +7,19 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 function Main({
-  baseUrl,
-  apiKey,
   videos,
   heroVideo,
-  heroVideoID,
-  setHeroVideoID,
+  setHeroVideo,
   fetchHeroVideo,
+  postComment,
 }) {
-  const { heroVideoID: newHeroID } = useParams();
-
+  //change the heroVideo detail when the url has changed
+  const { heroVideoID } = useParams();
   useEffect(() => {
-    if (newHeroID && newHeroID !== heroVideoID) {
-      setHeroVideoID(newHeroID);
-    }
-  }, [heroVideoID, newHeroID]);
+    fetchHeroVideo(heroVideoID).then((data) => {
+      setHeroVideo(data);
+    });
+  }, [heroVideoID]);
 
   return (
     <main className="main">
@@ -31,12 +29,11 @@ function Main({
           <VideoDetail heroVideo={heroVideo} />
           <VideoComment
             heroVideo={heroVideo}
-            baseUrl={baseUrl}
-            apiKey={apiKey}
+            postComment={postComment}
             fetchHeroVideo={fetchHeroVideo}
           />
         </div>
-        <VideoList videos={videos} heroVideoID={heroVideo.id} />
+        <VideoList videos={videos} heroVideo={heroVideo} />
       </div>
     </main>
   );

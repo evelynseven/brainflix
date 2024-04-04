@@ -2,27 +2,30 @@ import "./CommentBox.scss";
 import MohanMuruge from "../../assets/images/Mohan-muruge.jpg";
 import commentButton from "../../assets/icons/add_comment.svg";
 import CTAButton from "../CTAButton/CTAButton";
-import axios from "axios";
 
-function CommentBox({ baseUrl, apiKey, heroVideo, fetchHeroVideo }) {
-  const submitHandler = async (e) => {
+function CommentBox({
+  postComment,
+  heroVideo,
+  fetchHeroVideo,
+  setAllComments,
+}) {
+  const submitHandler = (e) => {
     e.preventDefault();
     const content = e.target.userComment.value;
     if (content.trim() !== "") {
-      try {
-        await axios.post(
-          `${baseUrl}/videos/${heroVideo.id}/comments?api_key=${apiKey}`,
-          { name: "Evelyn Sun", comment: `${content}` }
-        );
-        console.log(1123);
-        fetchHeroVideo();
-        console.log(321);
-      } catch (error) {
-        console.log(error);
-      }
+      const newComment = {
+        name: "Evelyn Sun",
+        comment: `${content}`,
+      };
+      postComment(newComment, heroVideo.id).then(() => {
+        fetchHeroVideo(heroVideo.id).then((data) => {
+          const sortedComments = data.comments.sort(
+            (a, b) => b.timestamp - a.timestamp
+          );
+          setAllComments(sortedComments);
+        });
+      });
       e.target.userComment.value = "";
-    } else {
-      //notify the user
     }
   };
 

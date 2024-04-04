@@ -3,48 +3,32 @@ import { Route, Routes } from "react-router-dom";
 import Main from "./pages/Main/Main";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import { fetchVideos, fetchHeroVideo, postComment } from "./Utils";
 
 function App() {
-  const apiKey = "8190a6f6-fa28-4c67-8202-ae962008831d";
-  const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
-
   const [videos, setVideos] = useState([]);
   const [heroVideo, setHeroVideo] = useState();
-  const [heroVideoID, setHeroVideoID] = useState();
+
+  // useEffect(() => {
+  //   fetchVideos().then((data) => {
+  //     setVideos(data);
+  //     fetchHeroVideo(data[0].id).then((data) => {
+  //       setHeroVideo(data);
+  //     });
+  //   });
+  // }, []);
 
   useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}/videos?api_key=${apiKey}`);
-        setVideos(response.data);
-        setHeroVideoID(response.data[0].id);
-      } catch (error) {
-        console.log(error);
-      }
+    const getVideos = async () => {
+      const data = await fetchVideos();
+      setVideos(data);
+      const hero = await fetchHeroVideo(data[0].id);
+      setHeroVideo(hero);
     };
-    fetchVideos();
+    getVideos();
   }, []);
-
-  const fetchHeroVideo = async () => {
-    console.log(heroVideoID);
-    try {
-      if (heroVideoID) {
-        const response = await axios.get(
-          `${baseUrl}/videos/${heroVideoID}?api_key=${apiKey}`
-        );
-        setHeroVideo(response.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchHeroVideo();
-  }, [heroVideoID]);
 
   return (
     videos &&
@@ -59,11 +43,9 @@ function App() {
                 <Main
                   videos={videos}
                   heroVideo={heroVideo}
-                  heroVideoID={heroVideoID}
-                  setHeroVideoID={setHeroVideoID}
-                  apiKey={apiKey}
-                  baseUrl={baseUrl}
+                  setHeroVideo={setHeroVideo}
                   fetchHeroVideo={fetchHeroVideo}
+                  postComment={postComment}
                 />
               }
             />
@@ -73,11 +55,9 @@ function App() {
                 <Main
                   videos={videos}
                   heroVideo={heroVideo}
-                  heroVideoID={heroVideoID}
-                  setHeroVideoID={setHeroVideoID}
-                  apiKey={apiKey}
-                  baseUrl={baseUrl}
+                  setHeroVideo={setHeroVideo}
                   fetchHeroVideo={fetchHeroVideo}
+                  postComment={postComment}
                 />
               }
             />
