@@ -20,8 +20,7 @@ function Main() {
   useEffect(() => {
     fetchVideos().then((data) => {
       setVideos(data);
-      let mainVideoID = data[0].id;
-      fetchHeroVideo(mainVideoID).then((data) => {
+      fetchHeroVideo(data[0].id).then((data) => {
         setHeroVideo(data);
       });
     });
@@ -34,7 +33,11 @@ function Main() {
         setHeroVideo(data);
       });
     } else {
-      // console.log(videos[0].id);
+      fetchVideos().then((data) => {
+        fetchHeroVideo(data[0].id).then((data) => {
+          setHeroVideo(data);
+        });
+      });
     }
   }, [heroVideoID]);
 
