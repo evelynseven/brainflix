@@ -6,11 +6,19 @@ import VideoList from "../../components/VideoList/VideoList";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-function Main({ videos, heroVideo, heroVideoID, setHeroVideoID }) {
+function Main({
+  baseUrl,
+  apiKey,
+  videos,
+  heroVideo,
+  heroVideoID,
+  setHeroVideoID,
+  fetchHeroVideo,
+}) {
   const { heroVideoID: newHeroID } = useParams();
 
   useEffect(() => {
-    if (newHeroID !== heroVideoID) {
+    if (newHeroID && newHeroID !== heroVideoID) {
       setHeroVideoID(newHeroID);
     }
   }, [heroVideoID, newHeroID]);
@@ -21,7 +29,12 @@ function Main({ videos, heroVideo, heroVideoID, setHeroVideoID }) {
       <div className="main__container">
         <div className="main__main-content">
           <VideoDetail heroVideo={heroVideo} />
-          <VideoComment heroVideo={heroVideo} />
+          <VideoComment
+            heroVideo={heroVideo}
+            baseUrl={baseUrl}
+            apiKey={apiKey}
+            fetchHeroVideo={fetchHeroVideo}
+          />
         </div>
         <VideoList videos={videos} heroVideoID={heroVideo.id} />
       </div>

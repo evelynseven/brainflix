@@ -28,19 +28,21 @@ function App() {
     fetchVideos();
   }, []);
 
-  useEffect(() => {
-    const fetchHeroVideo = async () => {
-      try {
-        if (heroVideoID) {
-          const response = await axios.get(
-            `${baseUrl}/videos/${heroVideoID}?api_key=${apiKey}`
-          );
-          setHeroVideo(response.data);
-        }
-      } catch (error) {
-        console.log(error);
+  const fetchHeroVideo = async () => {
+    console.log(heroVideoID);
+    try {
+      if (heroVideoID) {
+        const response = await axios.get(
+          `${baseUrl}/videos/${heroVideoID}?api_key=${apiKey}`
+        );
+        setHeroVideo(response.data);
       }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     fetchHeroVideo();
   }, [heroVideoID]);
 
@@ -59,9 +61,12 @@ function App() {
                   heroVideo={heroVideo}
                   heroVideoID={heroVideoID}
                   setHeroVideoID={setHeroVideoID}
+                  apiKey={apiKey}
+                  baseUrl={baseUrl}
+                  fetchHeroVideo={fetchHeroVideo}
                 />
               }
-            ></Route>
+            />
             <Route
               path="video/:heroVideoID"
               element={
@@ -70,14 +75,14 @@ function App() {
                   heroVideo={heroVideo}
                   heroVideoID={heroVideoID}
                   setHeroVideoID={setHeroVideoID}
+                  apiKey={apiKey}
+                  baseUrl={baseUrl}
+                  fetchHeroVideo={fetchHeroVideo}
                 />
               }
             />
           </Route>
-          <Route
-            path="upload"
-            element={<UploadPage heroVideoID={heroVideoID} />}
-          />
+          <Route path="upload" element={<UploadPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

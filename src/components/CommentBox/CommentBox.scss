@@ -54,9 +54,16 @@
     }
   }
 
+  &__input-button-wrapper {
+    @include tablet {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
   &__textarea {
-    height: 100px;
     width: 100%;
+    height: 40px;
     box-sizing: border-box;
     border-radius: 0.25rem;
     padding: 0.6rem;
@@ -66,7 +73,6 @@
     overflow: hidden;
 
     @include tablet {
-      height: 40px;
       margin-right: 1.5rem;
     }
 
@@ -77,6 +83,7 @@
     &:focus {
       outline: none;
       border: 2px solid $BrainFlix-Blue;
+      height: 100px;
     }
 
     &--error {
@@ -90,13 +97,9 @@
 
   &__button-box {
     margin: 0.6rem 0;
-  }
 
-  &__input-button-wrapper {
     @include tablet {
-      height: 40px;
-      display: flex;
-      align-items: center;
+      margin-top: 0;
     }
   }
 }

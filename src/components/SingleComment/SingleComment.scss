@@ -61,4 +61,18 @@
       padding-right: 2.25rem;
     }
   }
+
+  &__info-third-row {
+    display: flex;
+    justify-content: flex-end;
+
+    @include desktop {
+      margin-right: 2.25rem;
+    }
+
+    img {
+      height: 14px;
+      cursor: pointer;
+    }
+  }
 }

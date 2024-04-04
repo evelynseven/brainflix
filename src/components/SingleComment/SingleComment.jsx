@@ -1,5 +1,6 @@
 import "./SingleComment.scss";
 import dynamicTS from "../DynamicTimestamp/DynamicTimestamp";
+import deleteIcon from "../../assets/icons/icon-delete.svg";
 
 function SingleComment({ singleComment }) {
   return (
@@ -13,6 +14,9 @@ function SingleComment({ singleComment }) {
           </p>
         </div>
         <p className="comment-box__info-second-row">{singleComment.comment}</p>
+        <div className="comment-box__info-third-row">
+          <img src={deleteIcon} alt="delete icon" />
+        </div>
       </div>
     </div>
   );

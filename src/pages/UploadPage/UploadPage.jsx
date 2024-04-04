@@ -4,7 +4,7 @@ import PopUpMsg from "../../components/PopUpMsg/PopUpMsg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const UploadPage = ({ heroVideoID }) => {
+const UploadPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const UploadPage = ({ heroVideoID }) => {
 
   return (
     <div className="upload-page">
-      <UploadForm heroVideoID={heroVideoID} publishHandler={publishHandler} />
+      <UploadForm publishHandler={publishHandler} />
       {isVisible && <PopUpMsg message="Video uploaded!" />}
     </div>
   );

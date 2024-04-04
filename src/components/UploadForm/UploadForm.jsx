@@ -4,7 +4,7 @@ import publishIcon from "../../assets/icons/publish.svg";
 import imgPreview from "../../assets/images/Upload-video-preview.jpg";
 import { Link } from "react-router-dom";
 
-const UploadForm = ({ heroVideoID, publishHandler }) => {
+const UploadForm = ({ publishHandler }) => {
   return (
     <div className="upload-form">
       <h1>Upload Video</h1>
@@ -29,7 +29,7 @@ const UploadForm = ({ heroVideoID, publishHandler }) => {
         </div>
       </div>
       <div className="upload-form__button-wrapper">
-        <Link to={`/video/${heroVideoID}`}>
+        <Link to="/">
           <button className="upload-form__secondary-button-above">
             Cancel
           </button>
@@ -39,7 +39,7 @@ const UploadForm = ({ heroVideoID, publishHandler }) => {
           buttonIcon={publishIcon}
           buttonText="publish"
         />
-        <Link to={`/video/${heroVideoID}`}>
+        <Link to="/">
           <button className="upload-form__secondary-button-below">
             Cancel
           </button>
