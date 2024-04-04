@@ -3,7 +3,7 @@ import MohanMuruge from "../../assets/images/Mohan-muruge.jpg";
 import commentButton from "../../assets/icons/add_comment.svg";
 import CTAButton from "../CTAButton/CTAButton";
 
-function CommentBox({ postComment, heroVideo, updateComments }) {
+function CommentBox({ postComment, heroVideo }) {
   const submitHandler = (e) => {
     e.preventDefault();
     const content = e.target.userComment.value;
@@ -13,9 +13,8 @@ function CommentBox({ postComment, heroVideo, updateComments }) {
         comment: `${content}`,
       };
       postComment(newComment, heroVideo.id).then(() => {
-        updateComments();
+        e.target.userComment.value = "";
       });
-      e.target.userComment.value = "";
     }
   };
 

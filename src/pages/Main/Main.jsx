@@ -4,25 +4,43 @@ import VideoDetail from "../../components/VideoDetail/VideoDetail";
 import VideoComment from "../../components/VideoComment/VideoComment";
 import VideoList from "../../components/VideoList/VideoList";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-
-function Main({
-  videos,
-  heroVideo,
-  setHeroVideo,
+import { useEffect, useState } from "react";
+import {
+  fetchVideos,
   fetchHeroVideo,
   postComment,
   deleteComment,
-}) {
-  //change the heroVideo detail when the url has changed
+} from "../../api/Utils";
+
+function Main() {
+  const [videos, setVideos] = useState([]);
+  const [heroVideo, setHeroVideo] = useState();
   const { heroVideoID } = useParams();
+
   useEffect(() => {
-    if (heroVideoID) {
+    fetchVideos().then((data) => {
+      setVideos(data);
+      let mainVideoID = data[0].id;
+      fetchHeroVideo(mainVideoID).then((data) => {
+        setHeroVideo(data);
+      });
+    });
+  }, []);
+
+  //change the heroVideo when the url has changed
+  useEffect(() => {
+    if (heroVideoID !== undefined) {
       fetchHeroVideo(heroVideoID).then((data) => {
         setHeroVideo(data);
       });
+    } else {
+      // console.log(videos[0].id);
     }
   }, [heroVideoID]);
+
+  if (!heroVideo) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <main className="main">
@@ -33,7 +51,6 @@ function Main({
           <VideoComment
             heroVideo={heroVideo}
             postComment={postComment}
-            fetchHeroVideo={fetchHeroVideo}
             deleteComment={deleteComment}
           />
         </div>
