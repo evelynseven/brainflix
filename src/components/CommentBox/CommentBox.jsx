@@ -3,21 +3,7 @@ import MohanMuruge from "../../assets/images/Mohan-muruge.jpg";
 import commentButton from "../../assets/icons/add_comment.svg";
 import CTAButton from "../CTAButton/CTAButton";
 
-function CommentBox({ postComment, heroVideo }) {
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const content = e.target.userComment.value;
-    if (content.trim() !== "") {
-      const newComment = {
-        name: "Evelyn Sun",
-        comment: `${content}`,
-      };
-      postComment(newComment, heroVideo.id).then(() => {
-        e.target.userComment.value = "";
-      });
-    }
-  };
-
+function CommentBox({ submitHandler }) {
   return (
     <div className="comment-post">
       <form onSubmit={submitHandler} className="comment-post__form-content-box">

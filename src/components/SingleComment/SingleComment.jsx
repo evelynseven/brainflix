@@ -2,13 +2,10 @@ import "./SingleComment.scss";
 import dynamicTS from "../DynamicTimestamp/DynamicTimestamp";
 import deleteIcon from "../../assets/icons/icon-delete.svg";
 
-function SingleComment({ heroVideo, singleComment, deleteComment }) {
+function SingleComment({ deleteHandler, singleComment }) {
   const clickHandler = () => {
-    deleteComment(heroVideo.id, singleComment.id).then(() => {
-      // updateComments();
-    });
+    deleteHandler(singleComment);
   };
-
   return (
     <div className="comment-box">
       <div className="comment-box__default-user-img"></div>
