@@ -26,29 +26,49 @@ function Main() {
         comment: `${content}`,
       };
       postComment(newComment, heroVideo.id).then(() => {
-        fetchHeroVideo(heroVideo.id).then((data) => {
-          setHeroVideo(data);
-        });
+        fetchHeroVideo(heroVideo.id)
+          .then((data) => {
+            setHeroVideo(data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
         e.target.userComment.value = "";
       });
     }
   };
 
   const deleteHandler = (singleComment) => {
-    deleteComment(heroVideo.id, singleComment.id).then(() => {
-      fetchHeroVideo(heroVideo.id).then((data) => {
-        setHeroVideo(data);
+    deleteComment(heroVideo.id, singleComment.id)
+      .then(() => {
+        fetchHeroVideo(heroVideo.id)
+          .then((data) => {
+            setHeroVideo(data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    });
   };
 
   useEffect(() => {
-    fetchVideos().then((data) => {
-      setVideos(data);
-      fetchHeroVideo(data[0].id).then((data) => {
-        setHeroVideo(data);
+    fetchVideos()
+      .then((data) => {
+        setVideos(data);
+        fetchHeroVideo(data[0].id)
+          .then((data) => {
+            setHeroVideo(data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    });
   }, []);
 
   //change the heroVideo when the url has changed
