@@ -11,6 +11,7 @@ import {
   postComment,
   deleteComment,
 } from "../../api/Utils";
+import { v4 as uuidv4 } from "uuid";
 
 function Main() {
   const [videos, setVideos] = useState([]);
@@ -20,10 +21,14 @@ function Main() {
   const submitHandler = (e) => {
     e.preventDefault();
     const content = e.target.userComment.value;
+    const uuid = uuidv4();
+    const timestamp = new Date();
     if (content.trim() !== "") {
       const newComment = {
+        id: `${uuid}`,
         name: "Evelyn Sun",
         comment: `${content}`,
+        timestamp: `${timestamp}`,
       };
       postComment(newComment, heroVideo.id).then(() => {
         fetchHeroVideo(heroVideo.id)

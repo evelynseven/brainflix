@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const UploadForm = ({ publishHandler }) => {
   return (
-    <div className="upload-form">
+    <form onSubmit={publishHandler} className="upload-form">
       <h1>Upload Video</h1>
       <div className="upload-form__content-wrapper">
         <div className="upload-form__img-wrapper">
@@ -19,9 +19,14 @@ const UploadForm = ({ publishHandler }) => {
         </div>
         <div className="upload-form__input-wrapper">
           <label>TITLE YOUR VIDEO</label>
-          <input type="text" placeholder="Add a title to your video" />
+          <input
+            name="title"
+            type="text"
+            placeholder="Add a title to your video"
+          />
           <label>ADD A VIDEO DESCRIPTION</label>
           <textarea
+            name="desc"
             cols="30"
             rows="4"
             placeholder="Add a description to your video"
@@ -34,18 +39,14 @@ const UploadForm = ({ publishHandler }) => {
             Cancel
           </button>
         </Link>
-        <CTAButton
-          clickHandler={publishHandler}
-          buttonIcon={publishIcon}
-          buttonText="publish"
-        />
+        <CTAButton buttonIcon={publishIcon} buttonText="publish" />
         <Link to="/">
           <button className="upload-form__secondary-button-below">
             Cancel
           </button>
         </Link>
       </div>
-    </div>
+    </form>
   );
 };
 

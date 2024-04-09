@@ -3,7 +3,7 @@ import "./HeroBanner.scss";
 function HeroBanner({ heroVideo }) {
   return (
     <div className="hero">
-      <video poster={heroVideo.image} src={heroVideo.video} controls></video>
+      <video poster={heroVideo.image} controls></video>
     </div>
   );
 }
