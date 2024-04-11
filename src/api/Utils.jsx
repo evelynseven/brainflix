@@ -1,8 +1,5 @@
 import axios from "axios";
-// require("dotenv").config();
 
-// const apiKey = "8190a6f6-fa28-4c67-8202-ae962008831d";
-// const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com";
 const baseUrl = "http://localhost:8080";
 
 const fetchVideos = async () => {
